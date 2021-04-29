@@ -49,13 +49,13 @@ return array(
                     array('email', 'required')
                 ),
             ),
-//            'date' => array(
-//                'label' => 'Ваша дата рождения',
-//                'type' => 'Date',
-//                'rules' => array(
-//                    array('date', 'required')
-//                ),
-//            ),
+            'date' => array(
+                'label' => 'Ваша дата рождения',
+                'type' => 'Date',
+                'rules' => array(
+                    array('date', 'required')
+                ),
+            ),
             'education' => array(
                 'label' => 'Ваше образование',
                 'type' => 'String',
@@ -84,8 +84,20 @@ return array(
                     array('job', 'required')
                 ),
             ),
-            //Семейное положение
-            //Дети
+            'matrial_status' => array(
+                'label' => 'Семейное положение',
+                'type' => 'String',
+                'rules' => array(
+                    array('matrial_status', 'required')
+                ),
+            ),
+            'children' => array(
+                'label' => 'Дети',
+                'type' => 'String',
+                'rules' => array(
+                    array('children', 'required')
+                ),
+            ),
             'height' => array(
                 'label' => 'Ваш рост',
                 'type' => 'String',
@@ -163,13 +175,19 @@ return array(
                     array('social_network', 'required')
                 ),
             ),
-            //Предпочтительный способ связи
-//            'file1' => array(
-//                'type' => 'String',
-//                'rules' => array(
-//                    array('file1', 'required')
-//                ),
-//            ),
+            'сommunication_method' => array(
+                'label' => 'Предпочтительный способ связи',
+                'type' => 'String',
+                'rules' => array(
+                    array('сommunication_method', 'required')
+                ),
+            ),
+            'file1' => array(
+                'type' => 'String',
+                'rules' => array(
+                    array('file1', 'required')
+                ),
+            ),
 //            'file2' => array(
 //                'type' => 'String',
 //                'rules' => array(

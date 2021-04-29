@@ -35,10 +35,12 @@ Y::js(
     $labelMessenger = $factory->getOption("attributes.messenger.label");
     $labelWeChat = $factory->getOption("attributes.wechat.label");
     $labelEmail = $factory->getOption("attributes.email.label");
+    $labelDate = $factory->getOption("attributes.date.label");
     $labelEducation = $factory->getOption("attributes.education.label");
     $labelSpecialty = $factory->getOption("attributes.specialty.label");
     $labelCity = $factory->getOption("attributes.city.label");
     $labelJob = $factory->getOption("attributes.job.label");
+    $labelMatrialStatus = $factory->getOption("attributes.matrial_status.label");
     $labelHeight = $factory->getOption("attributes.height.label");
     $labelWeight = $factory->getOption("attributes.weight.label");
     $labelHeirColor = $factory->getOption("attributes.heir_color.label");
@@ -76,94 +78,132 @@ Y::js(
             <?= $fields['phone']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-messenger">
             <span><?= $labelMessenger; ?></span>
             <?= $fields['messenger']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-wechat">
             <span><?= $labelWeChat; ?></span>
             <?= $fields['wechat']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-email">
             <span><?= $labelEmail; ?></span>
             <?= $fields['email']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-date">
+            <span><?= $labelDate; ?></span>
+            <?= $fields['date']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-education">
             <span><?= $labelEducation; ?></span>
             <?= $fields['education']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-specialty">
             <span><?= $labelSpecialty; ?></span>
             <?= $fields['specialty']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-city">
             <span><?= $labelCity; ?></span>
             <?= $fields['city']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-job">
             <span><?= $labelJob; ?></span>
             <?= $fields['job']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-matrial_status">
+            <?= $form->label($model,'matrial_status'); ?>
+            <?= $form->radioButtonList($model,'matrial_status',array(
+                'Не замужем' => 'Не замужем',
+                'Замужем' => 'Замужем',
+                'Разведена' => 'Разведена',
+                'Вдова' => 'Вдова')); ?>
+        </label>
+
+        <label class="label label-children">
+            <?= $form->label($model,'children'); ?>
+            <?= $form->radioButtonList($model,'children',array(
+                'Нет' => 'Нет',
+                'Один' => 'Один',
+                'Два' => 'Два',
+                'Три' => 'Три',
+                'Больше трех' => 'Больше трех')); ?>
+        </label>
+
+        <label class="label label-height">
             <span><?= $labelHeight; ?></span>
             <?= $fields['height']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-weight">
             <span><?= $labelWeight; ?></span>
             <?= $fields['weight']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-heir_color">
             <span><?= $labelHeirColor; ?></span>
             <?= $fields['heir_color']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-hobby">
             <span><?= $labelHobby; ?></span>
             <?= $fields['hobby']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-phone">
+        <label class="label label-positive_feature">
             <span><?= $labelPositiveFeature; ?></span>
             <?= $fields['positive_feature']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label negative_feature">
+        <label class="label label-negative_feature">
             <span><?= $labelNegativeFeature; ?></span>
             <?= $fields['negative_feature']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label negative_feature">
+        <label class="label label-bad_habits">
             <span><?= $labelBadHabits; ?></span>
             <?= $fields['bad_habits']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label foreign_languages">
+        <label class="label label-foreign_languages">
             <span><?= $labelForeignLanguages; ?></span>
             <?= $fields['foreign_languages']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label requirements">
+        <label class="label label-requirements">
             <span><?= $labelRequirements; ?></span>
             <?= $fields['requirements']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label foreigners">
+        <label class="label label-foreigners">
             <span><?= $labelForeigners; ?></span>
             <?= $fields['foreigners']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label social_network">
+        <label class="label label-social_network">
             <span><?= $labelSocialNetwork; ?></span>
             <?= $fields['social_network']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-сommunication_method">
+            <?= $form->label($model,'сommunication_method'); ?>
+            <?= $form->radioButtonList($model,'сommunication_method',array(
+                'E-mail' => 'E-mail',
+                'Телефон' => 'Телефон',
+                'Мессенджер' => 'Мессенджер',
+                'Соцсеть' => 'Соцсеть')); ?>
+        </label>
+
+        <label class="label label-file1">
+            <?= $form->label($model,'file1'); ?>
+            <?= $form->fileField($model,'file1',array('size'=>60,'maxlength'=>255)); ?>
         </label>
 
         <div class="bottom">
