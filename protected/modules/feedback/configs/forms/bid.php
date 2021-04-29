@@ -19,7 +19,7 @@ return array(
         'attributes' => array(
             'name' => array(
                 'label' => 'Ваши Фамилия, Имя, Отчество',
-                'type' => 'String', // String, Phone, Text, Checkbox, List
+                'type' => 'String',
                 'rules' => array(
                     array('name', 'required')
                 ),
@@ -49,13 +49,13 @@ return array(
                     array('email', 'required')
                 ),
             ),
-            'date' => array(
-                'label' => 'Ваша дата рождения',
-                'type' => 'date',
-                'rules' => array(
-                    array('date', 'required')
-                ),
-            ),
+//            'date' => array(
+//                'label' => 'Ваша дата рождения',
+//                'type' => 'Date',
+//                'rules' => array(
+//                    array('date', 'required')
+//                ),
+//            ),
             'education' => array(
                 'label' => 'Ваше образование',
                 'type' => 'String',
@@ -182,11 +182,11 @@ return array(
 //                    array('file3', 'required')
 //                ),
 //            ),
-            'privacy_policy' => array(
+            'privacy_policy_bid' => array(
                 'label' => 'Нажимая на кнопку "Отправить", я даю согласие на ' . \CHtml::link('обработку персональных данных', ['/site/page', 'id'=>\D::cms('privacy_policy')], ['target'=>'_blank']),
                 'type' => 'Checkbox',
                 'rules' => array(
-                    array('privacy_policy', 'required')
+                    array('privacy_policy_bid', 'required')
                 ),
                 'htmlOptions'=>['class'=>'inpt inpt-privacy_policy']
             ),

@@ -32,7 +32,24 @@ Y::js(
 
     $labelName = $factory->getOption("attributes.name.label");
     $labelPhone = $factory->getOption("attributes.phone.label");
-    $labelCommentary = $factory->getOption("attributes.commentary.label");
+    $labelMessenger = $factory->getOption("attributes.messenger.label");
+    $labelWeChat = $factory->getOption("attributes.wechat.label");
+    $labelEmail = $factory->getOption("attributes.email.label");
+    $labelEducation = $factory->getOption("attributes.education.label");
+    $labelSpecialty = $factory->getOption("attributes.specialty.label");
+    $labelCity = $factory->getOption("attributes.city.label");
+    $labelJob = $factory->getOption("attributes.job.label");
+    $labelHeight = $factory->getOption("attributes.height.label");
+    $labelWeight = $factory->getOption("attributes.weight.label");
+    $labelHeirColor = $factory->getOption("attributes.heir_color.label");
+    $labelHobby = $factory->getOption("attributes.hobby.label");
+    $labelPositiveFeature = $factory->getOption("attributes.positive_feature.label");
+    $labelNegativeFeature = $factory->getOption("attributes.negative_feature.label");
+    $labelBadHabits = $factory->getOption("attributes.bad_habits.label");
+    $labelForeignLanguages = $factory->getOption("attributes.foreign_languages.label");
+    $labelRequirements = $factory->getOption("attributes.requirements.label");
+    $labelForeigners = $factory->getOption("attributes.foreigners.label");
+    $labelSocialNetwork = $factory->getOption("attributes.social_network.label");
     $labelPrivacy = $factory->getOption("attributes.privacy_policy.label");
     ?>
 
@@ -59,23 +76,104 @@ Y::js(
             <?= $fields['phone']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-commentary">
-            <span><?= $labelCommentary; ?></span>
-            <?= $fields['commentary']->getModel()->widget($factory, $form, $this->params) ?>
+        <label class="label label-phone">
+            <span><?= $labelMessenger; ?></span>
+            <?= $fields['messenger']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-phone">
+            <span><?= $labelWeChat; ?></span>
+            <?= $fields['wechat']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-phone">
+            <span><?= $labelEmail; ?></span>
+            <?= $fields['email']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-phone">
+            <span><?= $labelEducation; ?></span>
+            <?= $fields['education']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-phone">
+            <span><?= $labelSpecialty; ?></span>
+            <?= $fields['specialty']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-phone">
+            <span><?= $labelCity; ?></span>
+            <?= $fields['city']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-phone">
+            <span><?= $labelJob; ?></span>
+            <?= $fields['job']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-phone">
+            <span><?= $labelHeight; ?></span>
+            <?= $fields['height']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-phone">
+            <span><?= $labelWeight; ?></span>
+            <?= $fields['weight']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-phone">
+            <span><?= $labelHeirColor; ?></span>
+            <?= $fields['heir_color']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-phone">
+            <span><?= $labelHobby; ?></span>
+            <?= $fields['hobby']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label label-phone">
+            <span><?= $labelPositiveFeature; ?></span>
+            <?= $fields['positive_feature']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label negative_feature">
+            <span><?= $labelNegativeFeature; ?></span>
+            <?= $fields['negative_feature']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label negative_feature">
+            <span><?= $labelBadHabits; ?></span>
+            <?= $fields['bad_habits']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label foreign_languages">
+            <span><?= $labelForeignLanguages; ?></span>
+            <?= $fields['foreign_languages']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label requirements">
+            <span><?= $labelRequirements; ?></span>
+            <?= $fields['requirements']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label foreigners">
+            <span><?= $labelForeigners; ?></span>
+            <?= $fields['foreigners']->getModel()->widget($factory, $form, $this->params) ?>
+        </label>
+
+        <label class="label social_network">
+            <span><?= $labelSocialNetwork; ?></span>
+            <?= $fields['social_network']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
         <div class="bottom">
             <div class="check">
-                <?= $fields['privacy_policy']->getModel()->widget($factory, $form, $this->params) ?>
+                <?= $fields['privacy_policy_bid']->getModel()->widget($factory, $form, $this->params) ?>
             </div>
-
-            <?php if ($factory->getModelFactory()->getModel()->useCaptcha) {
-                $this->widget('feedback.widgets.captcha.CaptchaWidget');
-            } ?>
 
             <?= CHtml::submitButton($factory->getOption('controls.send.title', 'Отправить'), [
                 'class' => 'feedback-submit-button btn',
-                'id' => $factory->getModelFactory()->getModel()->recaptchaBehavior->attachReCaptchaBySubmitButton()
+                //'id' => $factory->getModelFactory()->getModel()->recaptchaBehavior->attachReCaptchaBySubmitButton()
             ]); ?>
         </div>
     </div>
