@@ -1,0 +1,34 @@
+.menu {
+    margin-top: 25px;
+    flex: 1 0 auto;
+    max-width: 620px;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        li {
+            &.active {
+                a {
+                    color: #4981c2;
+                }
+            }
+            flex: 1 0 auto;
+            a {
+                font-size: 16px;
+                line-height: 20px;
+                display: flex;
+                align-items: center;
+                text-align: right;
+                color: #2a314a;
+                transition: all 0.3s linear;
+                font-weight: 600;
+                &:hover {
+                    color: #4981c2;
+                }
+            }
+        }
+    }
+}
