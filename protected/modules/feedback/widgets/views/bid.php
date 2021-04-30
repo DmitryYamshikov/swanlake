@@ -95,7 +95,7 @@ Y::js(
 
         <label class="label label-date">
             <span><?= $labelDate; ?></span>
-            <?= $fields['date']->getModel()->widget($factory, $form, $this->params) ?>
+            <?= $form->dateField($model,'date')?>
         </label>
 
         <label class="label label-education">
@@ -124,7 +124,7 @@ Y::js(
                 'Не замужем' => 'Не замужем',
                 'Замужем' => 'Замужем',
                 'Разведена' => 'Разведена',
-                'Вдова' => 'Вдова')); ?>
+                'Вдова' => 'Вдова'), array('labelOptions' => [])); ?>
         </label>
 
         <label class="label label-children">
@@ -201,20 +201,24 @@ Y::js(
                 'Соцсеть' => 'Соцсеть')); ?>
         </label>
 
+
         <label class="label label-file1">
             <?= $form->label($model,'file1'); ?>
-            <?= $form->fileField($model,'file1',array('size'=>60,'maxlength'=>255)); ?>
+            <?= $form->fileField($model,'file1'); ?>
         </label>
 
         <label class="label label-file2">
             <?= $form->label($model,'file2'); ?>
-            <?= $form->fileField($model,'file2',array('size'=>60,'maxlength'=>255)); ?>
+            <?= $form->fileField($model,'file2'); ?>
         </label>
 
         <label class="label label-file3">
             <?= $form->label($model,'file3'); ?>
-            <?= $form->fileField($model,'file3',array('size'=>60,'maxlength'=>255)); ?>
+            <?= $form->fileField($model,'file3'); ?>
         </label>
+
+        <?= $form->errorSummary($model); ?>
+
 
         <div class="bottom">
             <div class="check">

@@ -165,29 +165,26 @@ return array(
                 'label' => 'Знакомство с иностранцами',
                 'type' => 'String',
                 'rules' => array(
-                    //array('foreigners', 'required')
+                    array('foreigners', 'required')
                 ),
             ),
             'social_network' => array(
                 'label' => 'Соцсеть',
                 'type' => 'String',
                 'rules' => array(
-                    //array('social_network', 'required')
+                    array('social_network', 'required')
                 ),
             ),
             'сommunication_method' => array(
                 'label' => 'Предпочтительный способ связи',
                 'type' => 'String',
-                'rules' => array(
-                    //array('сommunication_method', 'required')
-                ),
             ),
             'file1' => array(
                 'label' => 'Файл 1',
                 'type' => 'String',
-                'rules' => array(
-                    array('file1', 'required')
-                ),
+                'required' => true,
+                'enableClientValidation' => true,
+                'enableAjaxValidation' => true
             ),
             'file2' => array(
                 'label' => 'Файл 2',
