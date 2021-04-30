@@ -17,6 +17,7 @@ if ($page->isShowPageTitle()): ?>
 
         </div>
     <? endif; ?>
+    
     <? if (D::cms('additional_emails')): ?>
         <div class="additional__item additional-emails">
             <div class="svg-icon">
@@ -32,18 +33,6 @@ if ($page->isShowPageTitle()): ?>
 
         </div>
     <? endif; ?>
-    <? if (D::cms('additional_address')): ?>
-        <div class="additional__item additional-address">
-            <div class="svg-icon">
-                <svg width="14" height="20" viewBox="0 0 14 20" fill="" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.00011 19.2492C7.00011 19.2492 0.507812 10.852 0.507812 7.29257C0.507812 3.73684 3.41451 0.85437 7.00011 0.85437C10.5857 0.85437 13.4924 3.73684 13.4924 7.29257C13.4924 10.852 7.00011 19.2492 7.00011 19.2492ZM7.00011 9.13206C8.02497 9.13206 8.85506 8.30888 8.85506 7.29257C8.85506 6.27625 8.02497 5.45308 7.00011 5.45308C5.97526 5.45308 5.14517 6.27625 5.14517 7.29257C5.14517 8.30888 5.97526 9.13206 7.00011 9.13206Z" fill=""/>
-                </svg>
-            </div>
-            <div>
-                <div class="additional__title">Адрес:</div>
-                <?= HtmlHelper::replaceEndLineToParagraph(D::cms('additional_address')) ?>
-            </div>
-        </div>
-    <? endif; ?>
+    
 </div>
 <?= $page->text ?>

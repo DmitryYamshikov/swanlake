@@ -9,9 +9,21 @@ h1 {
 h2 {
     font-family: "Sweet Mavka Script" !important;
 }
+#my-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    #my-content {
+        flex: 1 0 auto;
+    }
+}
+.inner-page #my-content {
+    margin-top: 147px;
+}
 @import url(block/menu.less);
 @import url(block/header.less);
 @import url(block/banner.less);
 @import url(block/reason.less);
 @import url(block/toankete.less);
 @import url(block/footer.less);
+@import url(block/service.less);
