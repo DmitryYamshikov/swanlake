@@ -15,7 +15,7 @@ use common\components\helpers\HYii as Y; ?>
   CmsHtml::js($this->template . '/js/custom.js');
   ?>
 
-  <?php if (\Yii::app()->params['isAdaptive']) : ?>
+  <?php if  (\Yii::app()->params['isAdaptive']) : ?>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <? else : ?>
     <meta name="viewport" content="width=device-width">
