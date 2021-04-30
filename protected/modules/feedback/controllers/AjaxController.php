@@ -84,7 +84,7 @@ class AjaxController extends FrontController
                             $fileNameCmps = explode(".", $fileName);
                             $fileExtension = strtolower(end($fileNameCmps));
                             $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
-                            $allowedfileExtensions = array('jpg', 'gif', 'png');
+                            $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
                             $uploadFileDir = $dir . "/";
                             $dest_path = $uploadFileDir . $newFileName;
                             if (in_array($fileExtension, $allowedfileExtensions)) {
@@ -111,33 +111,12 @@ class AjaxController extends FrontController
                 $result['html'] = $templateOut;
                 // Отправка уведомления на почту
                 if ($result['success']) {
-//                    HEvent::raise('OnFeedbackNewMessageSuccess', compact('factory', 'model'));
-                    $filename = $dest_path; //Имя файла для прикрепления
-                    $to = "Lukichev_s@mail.ru"; //Кому
-                    $from = "def@gmail.com"; //От кого
-                    $subject = "Test"; //Тема
-                    $message = "Текстовое сообщение"; //Текст письма
-                    $boundary = "---"; //Разделитель
-                    /* Заголовки */
-                    $headers = "From: $from\nReply-To: $from\n";
-                    $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"";
-                    $body = "--$boundary\n";
-                    /* Присоединяем текстовое сообщение */
-                    $body .= "Content-type: text/html; charset='utf-8'\n";
-                    $body .= "Content-Transfer-Encoding: quoted-printablenn";
-                    $body .= "Content-Disposition: attachment; filename==?utf-8?B?".base64_encode($filename)."?=\n\n";
-                    $body .= $message."\n";
-                    $body .= "--$boundary\n";
-                    $file = fopen($filename, "r"); //Открываем файл
-                    $text = fread($file, filesize($filename)); //Считываем весь файл
-                    fclose($file); //Закрываем файл
-                    /* Добавляем тип содержимого, кодируем текст файла и добавляем в тело письма */
-                    $body .= "Content-Type: application/octet-stream; name==?utf-8?B?".base64_encode($filename)."?=\n";
-                    $body .= "Content-Transfer-Encoding: base64\n";
-                    $body .= "Content-Disposition: attachment; filename==?utf-8?B?".base64_encode($filename)."?=\n\n";
-                    $body .= chunk_split(base64_encode($text))."\n";
-                    $body .= "--".$boundary ."--\n";
-                    mail($to, $subject, $body, $headers); //Отправляем письмо
+                    HEvent::raise('OnFeedbackNewMessageSuccess', compact('factory', 'model'));
+//                    $filenames[0] = $fileNameForMail[0]; //Имя файла для прикрепления
+//                    $filenames[1] = $fileNameForMail[1]; //Имя файла для прикрепления
+//                    $filenames[2] = $fileNameForMail[2]; //Имя файла для прикрепления
+//
+//                    $this->sendFiles($filenames, 'Lukichev_s@mail.ru', $model);
                 }
             }
         }
@@ -161,5 +140,68 @@ class AjaxController extends FrontController
                 move_uploaded_file($fileTmpPath, $dest_path);
             }
         }
+    }
+
+
+    private function sendFiles($filesArray, $emailTo, $model){
+
+        $files = $filesArray;
+        $headers = 'Content-type: text/plain; charset="utf-8"';
+        $to = $emailTo;
+        $from = "example@gmail.com";
+        $subject = 'Новое сообщение с сайта ' . \D::cms('sitename', $_SERVER['SERVER_NAME']);
+        $message = "";
+
+        $correctModel = [];
+
+        foreach ($model as $key => $value)
+        {
+            if ($key == 'id' || $key == 'created' || $key == 'completed' || $key == 'file1' || $key == 'file2' || $key == 'file3')
+            {
+                continue;
+            } else
+            {
+                $correctModel[$key] = $value;
+            }
+        }
+
+        foreach ($correctModel as $key => $item)
+        {
+            $message .= $key . " : " . $item . "\n";
+        }
+
+        $message = $this->convertEncoding($message);
+
+        // boundary
+        $semi_rand = md5(time());
+        $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";
+
+        // headers for attachment
+        $headers .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\"";
+
+        // multipart boundary
+        $message = "This is a multi-part message in MIME format.\n\n" . "--{$mime_boundary}\n" . "Content-Type: text/plain; charset=\"iso-8859-1\"\n" . "Content-Transfer-Encoding: 7bit\n\n" . $message . "\n\n";
+        $message .= "--{$mime_boundary}\n";
+
+        // preparing attachments
+        for($x=0;$x<count($files);$x++){
+            $file = fopen($files[$x],"rb");
+            $data = fread($file,filesize($files[$x]));
+            fclose($file);
+            $data = chunk_split(base64_encode($data));
+            $message .= "Content-Type: {\"application/octet-stream\"};\n" . " name=\"$files[$x]\"\n" .
+                "Content-Disposition: attachment;\n" . " filename=\"$files[$x]\"\n" .
+                "Content-Transfer-Encoding: base64\n\n" . $data . "\n\n";
+            $message .= "--{$mime_boundary}\n";
+        }
+
+        // send
+
+        $ok = @mail($to, $subject, $message, $headers);
+    }
+
+    private function convertEncoding($str, $from = 'auto', $to = "UTF-8") {
+        if($from == 'auto') $from = mb_detect_encoding($str);
+        return mb_convert_encoding ($str , $to, $from);
     }
 }

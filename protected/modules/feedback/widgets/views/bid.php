@@ -192,9 +192,9 @@ Y::js(
             <?= $fields['social_network']->getModel()->widget($factory, $form, $this->params) ?>
         </label>
 
-        <label class="label label-сommunication_method">
-            <?= $form->label($model,'сommunication_method'); ?>
-            <?= $form->radioButtonList($model,'сommunication_method',array(
+        <label class="label label-communication_method">
+            <?= $form->label($model,'communication_method'); ?>
+            <?= $form->radioButtonList($model,'communication_method',array(
                 'E-mail' => 'E-mail',
                 'Телефон' => 'Телефон',
                 'Мессенджер' => 'Мессенджер',

@@ -175,7 +175,7 @@ return array(
                     array('social_network', 'required')
                 ),
             ),
-            'сommunication_method' => array(
+            'communication_method' => array(
                 'label' => 'Предпочтительный способ связи',
                 'type' => 'String',
             ),
