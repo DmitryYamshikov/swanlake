@@ -1,0 +1,106 @@
+@media (max-width: 1200px) {
+    .banner {
+        &__text {
+            left: ~"calc(50% - 480px)";
+        }
+    }
+    .article__list .service__title {
+        font-size: 20px;
+    }
+}
+@media (max-width: 992px) {
+    .header {
+        &__slogan {
+            display: none;
+        }
+    }
+    .banner {
+        &__text {
+            left: ~"calc(50% - 370px)";
+        }
+    }
+    .reason {
+        &__descr {
+            padding: 22px 15px;
+            font-size: 17px;
+        }
+    }
+    .toankete {
+        &__img {
+            width: 244px;
+            height: 220px;
+        }
+    }
+    .article__list .services__list {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+    .mm-listitem.active .mm-listitem__text {
+        color:#4981C2 !important;
+    }
+    .logo {
+        flex: none !important;
+    }
+    .menu-left {
+        background-color: #fff;
+    }
+    .mm-navbar {
+        display: none !important;
+    }
+    .banner {
+        &__text {
+            padding: 20px;
+            left: ~"calc(50% - 270px)";
+        }
+        &__title {
+            font-size: 28px;
+            line-height: 42px;
+        }
+        &__subtitle {
+            margin-top: 15px;
+        }
+    }
+    .reason {
+        &__wrapper {
+            flex-direction: column;
+            align-items: center;
+        }
+        &__item {
+            width: 80%;
+            margin-bottom: 30px;
+        }
+    }
+    .toankete {
+        &__img {
+            height: 175px;
+            margin-right: 20px;
+        }
+        &__title {
+            font-size: 25px;
+            line-height: 30px;
+        }
+    }
+}
+@media (max-width: 576px) {
+    .banner {
+        max-height: 100vh;
+        background-position-x: 70%;
+        &__text {
+            left: 15px;
+            width: ~"calc(100% - 30px)";
+        }
+    }
+    .reason__title {
+        font-size: 27px;
+    }
+    .toankete {
+        &__wrapper {
+            flex-direction: column;
+        }
+    }
+}

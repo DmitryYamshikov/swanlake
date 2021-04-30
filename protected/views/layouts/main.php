@@ -47,6 +47,28 @@ use common\components\helpers\HYii as Y; ?>
           <div class="menu">
             <?php $this->widget('\menu\widgets\menu\MenuWidget', array('rootLimit' => D::cms('menu_limit'), 'cssClass' => '')); ?>
           </div>
+          <div class="menu-left" id="menu-left">
+            <?php
+            $this->widget('\menu\widgets\menu\MenuWidget', array(
+              'rootLimit' => D::cms('menu_limit'),
+              'cssClass' => 'menu1',
+              'id' => 'menu'
+            ));
+            ?>
+          </div>
+
+          <a href="#menu-left" class="menu-toggle-link">
+            <div class="menu-toggle">
+              <span class="menu-toggle__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 384 384">
+                  <g xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#fff" data-original="#000000" d="M0 277.333h384V320H0zM0 170.667h384v42.667H0zM0 64h384v42.667H0z"></path>
+                  </g>
+                </svg>
+              </span>
+
+            </div>
+          </a>
         </div>
       </div>
     </header>
@@ -64,7 +86,7 @@ use common\components\helpers\HYii as Y; ?>
           </div>
           <div class="footer__row">
             <?= D::cms('privacy_policy_text') ?>
-          </div> 
+          </div>
         </div>
       </div>
     </footer>
