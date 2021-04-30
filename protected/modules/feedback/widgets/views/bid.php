@@ -206,6 +206,16 @@ Y::js(
             <?= $form->fileField($model,'file1',array('size'=>60,'maxlength'=>255)); ?>
         </label>
 
+        <label class="label label-file2">
+            <?= $form->label($model,'file2'); ?>
+            <?= $form->fileField($model,'file2',array('size'=>60,'maxlength'=>255)); ?>
+        </label>
+
+        <label class="label label-file3">
+            <?= $form->label($model,'file3'); ?>
+            <?= $form->fileField($model,'file3',array('size'=>60,'maxlength'=>255)); ?>
+        </label>
+
         <div class="bottom">
             <div class="check">
                 <?= $fields['privacy_policy_bid']->getModel()->widget($factory, $form, $this->params) ?>

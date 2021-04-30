@@ -21,21 +21,21 @@ return array(
                 'label' => 'Ваши Фамилия, Имя, Отчество',
                 'type' => 'String',
                 'rules' => array(
-                    array('name', 'required')
+                    //array('name', 'required')
                 ),
             ),
             'phone' => array(
                 'label' => 'Контактный телефон',
                 'type' => 'Phone',
                 'rules' => array(
-                    array('phone', 'required')
+                    //array('phone', 'required')
                 ),
             ),
             'messenger' => array(
                 'label' => 'Мессенджер',
                 'type' => 'String',
                 'rules' => array(
-                    array('messenger', 'required')
+                    //array('messenger', 'required')
                 ),
             ),
             'wechat' => array(
@@ -46,160 +46,163 @@ return array(
                 'label' => 'Мессенджер',
                 'type' => 'String',
                 'rules' => array(
-                    array('email', 'required')
+                    //array('email', 'required')
                 ),
             ),
             'date' => array(
                 'label' => 'Ваша дата рождения',
                 'type' => 'Date',
                 'rules' => array(
-                    array('date', 'required')
+                    //array('date', 'required')
                 ),
             ),
             'education' => array(
                 'label' => 'Ваше образование',
                 'type' => 'String',
                 'rules' => array(
-                    array('education', 'required')
+                    //array('education', 'required')
                 ),
             ),
             'specialty' => array(
                 'label' => 'Ваша специальность',
                 'type' => 'String',
                 'rules' => array(
-                    array('specialty', 'required')
+                    //array('specialty', 'required')
                 ),
             ),
             'city' => array(
                 'label' => 'Город проживания',
                 'type' => 'String',
                 'rules' => array(
-                    array('city', 'required')
+                    //array('city', 'required')
                 ),
             ),
             'job' => array(
                 'label' => 'Место работы/учебы',
                 'type' => 'String',
                 'rules' => array(
-                    array('job', 'required')
+                    //array('job', 'required')
                 ),
             ),
             'matrial_status' => array(
                 'label' => 'Семейное положение',
                 'type' => 'String',
                 'rules' => array(
-                    array('matrial_status', 'required')
+                    //array('matrial_status', 'required')
                 ),
             ),
             'children' => array(
                 'label' => 'Дети',
                 'type' => 'String',
                 'rules' => array(
-                    array('children', 'required')
+                    //array('children', 'required')
                 ),
             ),
             'height' => array(
                 'label' => 'Ваш рост',
                 'type' => 'String',
                 'rules' => array(
-                    array('height', 'required')
+                    //array('height', 'required')
                 ),
             ),
             'weight' => array(
                 'label' => 'Ваш вес',
                 'type' => 'String',
                 'rules' => array(
-                    array('weight', 'required')
+                    //array('weight', 'required')
                 ),
             ),
             'heir_color' => array(
                 'label' => 'Ваш цвет волос',
                 'type' => 'String',
                 'rules' => array(
-                    array('heir_color', 'required')
+                    //array('heir_color', 'required')
                 ),
             ),
             'hobby' => array(
                 'label' => 'Увлечения, хобби',
                 'type' => 'String',
                 'rules' => array(
-                    array('hobby', 'required')
+                    //array('hobby', 'required')
                 ),
             ),
             'positive_feature' => array(
                 'label' => 'Ваши положительные черты',
                 'type' => 'String',
                 'rules' => array(
-                    array('positive_feature', 'required')
+                    //array('positive_feature', 'required')
                 ),
             ),
             'negative_feature' => array(
                 'label' => 'Ваши отрицательные черты',
                 'type' => 'String',
                 'rules' => array(
-                    array('negative_feature', 'required')
+                    //array('negative_feature', 'required')
                 ),
             ),
             'bad_habits' => array(
                 'label' => 'Вредные привычки',
                 'type' => 'String',
                 'rules' => array(
-                    array('bad_habits', 'required')
+                    //array('bad_habits', 'required')
                 ),
             ),
             'foreign_languages' => array(
                 'label' => 'Занание иностранных языков и уровень знания',
                 'type' => 'String',
                 'rules' => array(
-                    array('foreign_languages', 'required')
+                    //array('foreign_languages', 'required')
                 ),
             ),
             'requirements' => array(
                 'label' => 'Требования к партнеру',
                 'type' => 'Text',
                 'rules' => array(
-                    array('requirements', 'required')
+                    //array('requirements', 'required')
                 ),
             ),
             'foreigners' => array(
                 'label' => 'Знакомство с иностранцами',
                 'type' => 'String',
                 'rules' => array(
-                    array('foreigners', 'required')
+                    //array('foreigners', 'required')
                 ),
             ),
             'social_network' => array(
                 'label' => 'Соцсеть',
                 'type' => 'String',
                 'rules' => array(
-                    array('social_network', 'required')
+                    //array('social_network', 'required')
                 ),
             ),
             'сommunication_method' => array(
                 'label' => 'Предпочтительный способ связи',
                 'type' => 'String',
                 'rules' => array(
-                    array('сommunication_method', 'required')
+                    //array('сommunication_method', 'required')
                 ),
             ),
             'file1' => array(
+                'label' => 'Файл 1',
                 'type' => 'String',
                 'rules' => array(
                     array('file1', 'required')
                 ),
             ),
-//            'file2' => array(
-//                'type' => 'String',
-//                'rules' => array(
-//                    array('file2', 'required')
-//                ),
-//            ),
-//            'file3' => array(
-//                'type' => 'String',
-//                'rules' => array(
-//                    array('file3', 'required')
-//                ),
-//            ),
+            'file2' => array(
+                'label' => 'Файл 2',
+                'type' => 'String',
+                'rules' => array(
+                    array('file2', 'required')
+                ),
+            ),
+            'file3' => array(
+                'label' => 'Файл 3',
+                'type' => 'String',
+                'rules' => array(
+                    array('file3', 'required')
+                ),
+            ),
             'privacy_policy_bid' => array(
                 'label' => 'Нажимая на кнопку "Отправить", я даю согласие на ' . \CHtml::link('обработку персональных данных', ['/site/page', 'id'=>\D::cms('privacy_policy')], ['target'=>'_blank']),
                 'type' => 'Checkbox',

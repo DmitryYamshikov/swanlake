@@ -33,8 +33,17 @@ $this->breadcrumbs = array($title=>array('feedback/callback'));
         <td class="title">
         	<?php $model = $factory->getModelFactory()->getModel(); ?>
         	<?php foreach($factory->getModelFactory()->getAttributes() as $name=>$typeFactory): if((strpos($name, 'privacy_policy') !== false) || in_array($name, [])) continue; ?>
-        		<b><?php echo $model->getAttributeLabel($name); ?>:</b> <?php echo $typeFactory->getModel()->format($feedback->$name); ?><br />
-        	<?php endforeach; ?>       		
+        		<b><?php echo $model->getAttributeLabel($name); ?>:</b>
+                <?php
+                if ($model->getAttributeLabel($name) == "Файл 1" || $model->getAttributeLabel($name) == "Файл 2" || $model->getAttributeLabel($name) == "Файл 3"){
+                    $path = '/upload/feedback/'.$typeFactory->getModel()->format($feedback->$name);
+                    echo "<a href='{$path}'>{$typeFactory->getModel()->format($feedback->$name)}</a>";
+                } else {
+                    echo $typeFactory->getModel()->format($feedback->$name);
+                }
+                ?>
+                <br />
+        	<?php endforeach; ?>
         </td>        
     	<td align="center"><?php echo str_replace(' ', '<br />', $feedback->created); ?></td>
     	<td align="center"><div class="mark <?php echo !$feedback->completed ? 'marked' : 'unmarked'; ?>" data-item="<?php echo $feedback->id; ?>"></div></td>
