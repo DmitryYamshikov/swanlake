@@ -148,7 +148,19 @@ $(document).ready(function() {
 			}
 		});
 	}
-
+	// меняем шапку при скроле
+	try {
+		document.addEventListener('scroll', ()=>{
+			const header = document.querySelector('.header');
+			if (window.pageYOffset>300) {
+				header.classList.add('under');
+			} else {
+				header.classList.remove('under');
+			}
+		});
+	} catch (error) {
+		console.log(error);
+	}
 	$('body').on('click', '.yiiPager li', function(){
 		$('html, body').animate({ scrollTop: $('.content').offset().top }, 500); // анимируем скроолинг к элементу scroll_el
 	});

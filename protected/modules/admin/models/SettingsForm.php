@@ -395,7 +395,7 @@ class SettingsForm extends \common\components\base\FormModel
             // Ссылки намессенджеры
             'show_messengers' => 'Отображать ссылки мессенджеров на сайте',
             'whatsapp' => 'Ссылка на Whatsapp',
-            'telegram' => 'Ссылка на Телеграм',
+            'telegram' => 'для Wechat',
             'viber' => 'Ссылка на Вайбер',
 
                 //Дополнительные контактыж

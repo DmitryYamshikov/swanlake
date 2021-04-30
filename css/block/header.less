@@ -1,4 +1,5 @@
 .header {
+    transition: all .3s linear;
     position: fixed;
     top: 0;
     left: 0;
@@ -6,6 +7,7 @@
     width: 100%;
     box-shadow: none;
     background-color: transparent;
+    background-image: url(/images/header.jpg);
     &__wrapper {
         display: flex;
         justify-content: space-between;
@@ -21,4 +23,18 @@
         line-height: 18px;
         color: #4f4f4f;
     }
+    &.under {
+        background-image: url(/images/header.jpg) !important;
+        .logo {
+            width: 55px;
+            height: 67px;
+        }
+    }
 }
+.index-page {
+    .header {
+        background-image: none;
+        
+    }
+}
+
