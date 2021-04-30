@@ -8,20 +8,7 @@
 <?php endforeach; ?>
 <div class="page-content">
     <div class="page-content__container container">
-<<<<<<< HEAD
-        <?/* \crud\models\ar\Service::widget(); */ ?>
-=======
-        <div id="form-bid">
-            <div class="popup-info">
-                <?php $this->widget('\feedback\widgets\FeedbackWidget', [
-                    'id' => 'bid',
-                    'title' => 'Оформить заявку',
-                    'view' => 'bid'
-                ]) ?>
-            </div>
-        </div>
-        <?/* \crud\models\ar\Service::widget(); */?>
->>>>>>> origin/form
+
         <?= $page->text ?>
     </div>
 </div>

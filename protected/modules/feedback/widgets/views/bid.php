@@ -67,160 +67,203 @@ Y::js(
         </div>
     <?php endif; ?>
 
-    <div class="feedback-body fields">
-        <label class="label label-name">
-            <span><?= $labelName; ?></span>
-            <?= $fields['name']->getModel()->widget($factory, $form, $this->params) ?>
+    <div class="feedback-body fields ankete">
+        <div class="ankete__row">
+            <label class="label label-name">
+                <span><?= $labelName; ?></span>
+                <?= $fields['name']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row ankete__row_twoelem">
+            <label class="label label-phone">
+                <span><?= $labelPhone; ?></span>
+                <?= $fields['phone']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+
+            <label class="label label-messenger">
+                <span><?= $labelMessenger; ?></span>
+                <?= $fields['messenger']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row ankete__row_twoelem">
+            <label class="label label-wechat">
+                <span><?= $labelWeChat; ?></span>
+                <?= $fields['wechat']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+
+            <label class="label label-email">
+                <span><?= $labelEmail; ?></span>
+                <?= $fields['email']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-date">
+                <span><?= $labelDate; ?></span>
+                <?= $form->dateField($model, 'date') ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-education">
+                <span><?= $labelEducation; ?></span>
+                <?= $fields['education']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-specialty">
+                <span><?= $labelSpecialty; ?></span>
+                <?= $fields['specialty']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row ankete__row_twoelem">
+            <label class="label label-city">
+                <span><?= $labelCity; ?></span>
+                <?= $fields['city']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+
+            <label class="label label-job">
+                <span><?= $labelJob; ?></span>
+                <?= $fields['job']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-matrial_status label-radio">
+                <?= $form->label($model, 'matrial_status'); ?>
+                <?= $form->radioButtonList($model, 'matrial_status', array(
+                    'Не замужем' => 'Не замужем',
+                    'Замужем' => 'Замужем',
+                    'Разведена' => 'Разведена',
+                    'Вдова' => 'Вдова'
+                ), array('labelOptions' => [])); ?>
+            </label>
+
+            <label class="label label-children label-radio">
+                <?= $form->label($model, 'children'); ?>
+                <?= $form->radioButtonList($model, 'children', array(
+                    'Нет' => 'Нет',
+                    'Один' => 'Один',
+                    'Два' => 'Два',
+                    'Три' => 'Три',
+                    'Больше трех' => 'Больше трех'
+                )); ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-height">
+                <span><?= $labelHeight; ?></span>
+                <?= $fields['height']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+
+            <label class="label label-weight">
+                <span><?= $labelWeight; ?></span>
+                <?= $fields['weight']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+
+            <label class="label label-heir_color">
+                <span><?= $labelHeirColor; ?></span>
+                <?= $fields['heir_color']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-hobby">
+                <span><?= $labelHobby; ?></span>
+                <?= $fields['hobby']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-positive_feature">
+                <span><?= $labelPositiveFeature; ?></span>
+                <?= $fields['positive_feature']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-negative_feature">
+                <span><?= $labelNegativeFeature; ?></span>
+                <?= $fields['negative_feature']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-bad_habits">
+                <span><?= $labelBadHabits; ?></span>
+                <?= $fields['bad_habits']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-foreign_languages">
+                <span><?= $labelForeignLanguages; ?></span>
+                <?= $fields['foreign_languages']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-requirements">
+                <span><?= $labelRequirements; ?></span>
+                <?= $fields['requirements']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-foreigners">
+                <span><?= $labelForeigners; ?></span>
+                <?= $fields['foreigners']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-social_network">
+                <span><?= $labelSocialNetwork; ?></span>
+                <?= $fields['social_network']->getModel()->widget($factory, $form, $this->params) ?>
+            </label>
+        </div>
+
+        <div class="ankete__row">
+            <label class="label label-communication_method label-radio">
+                <?= $form->label($model, 'communication_method'); ?>
+                <?= $form->radioButtonList($model, 'communication_method', array(
+                    'E-mail' => 'E-mail',
+                    'Телефон' => 'Телефон',
+                    'Мессенджер' => 'Мессенджер',
+                    'Соцсеть' => 'Соцсеть'
+                )); ?>
+            </label>
+        </div>
+
+        <h3>Три Ваших фотографии формата jpg png zip</h3>
+        <label class="label label-file btn">
+            <span>Выберите файл</span>
+            <?= $form->fileField($model, 'file1'); ?>
         </label>
 
-        <label class="label label-phone">
-            <span><?= $labelPhone; ?></span>
-            <?= $fields['phone']->getModel()->widget($factory, $form, $this->params) ?>
+        <label class="label label-file btn">
+            <span>Выберите файл</span>
+            <?= $form->fileField($model, 'file2'); ?>
         </label>
 
-        <label class="label label-messenger">
-            <span><?= $labelMessenger; ?></span>
-            <?= $fields['messenger']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-wechat">
-            <span><?= $labelWeChat; ?></span>
-            <?= $fields['wechat']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-email">
-            <span><?= $labelEmail; ?></span>
-            <?= $fields['email']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-date">
-            <span><?= $labelDate; ?></span>
-            <?= $form->dateField($model,'date')?>
-        </label>
-
-        <label class="label label-education">
-            <span><?= $labelEducation; ?></span>
-            <?= $fields['education']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-specialty">
-            <span><?= $labelSpecialty; ?></span>
-            <?= $fields['specialty']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-city">
-            <span><?= $labelCity; ?></span>
-            <?= $fields['city']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-job">
-            <span><?= $labelJob; ?></span>
-            <?= $fields['job']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-matrial_status">
-            <?= $form->label($model,'matrial_status'); ?>
-            <?= $form->radioButtonList($model,'matrial_status',array(
-                'Не замужем' => 'Не замужем',
-                'Замужем' => 'Замужем',
-                'Разведена' => 'Разведена',
-                'Вдова' => 'Вдова'), array('labelOptions' => [])); ?>
-        </label>
-
-        <label class="label label-children">
-            <?= $form->label($model,'children'); ?>
-            <?= $form->radioButtonList($model,'children',array(
-                'Нет' => 'Нет',
-                'Один' => 'Один',
-                'Два' => 'Два',
-                'Три' => 'Три',
-                'Больше трех' => 'Больше трех')); ?>
-        </label>
-
-        <label class="label label-height">
-            <span><?= $labelHeight; ?></span>
-            <?= $fields['height']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-weight">
-            <span><?= $labelWeight; ?></span>
-            <?= $fields['weight']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-heir_color">
-            <span><?= $labelHeirColor; ?></span>
-            <?= $fields['heir_color']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-hobby">
-            <span><?= $labelHobby; ?></span>
-            <?= $fields['hobby']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-positive_feature">
-            <span><?= $labelPositiveFeature; ?></span>
-            <?= $fields['positive_feature']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-negative_feature">
-            <span><?= $labelNegativeFeature; ?></span>
-            <?= $fields['negative_feature']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-bad_habits">
-            <span><?= $labelBadHabits; ?></span>
-            <?= $fields['bad_habits']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-foreign_languages">
-            <span><?= $labelForeignLanguages; ?></span>
-            <?= $fields['foreign_languages']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-requirements">
-            <span><?= $labelRequirements; ?></span>
-            <?= $fields['requirements']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-foreigners">
-            <span><?= $labelForeigners; ?></span>
-            <?= $fields['foreigners']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-social_network">
-            <span><?= $labelSocialNetwork; ?></span>
-            <?= $fields['social_network']->getModel()->widget($factory, $form, $this->params) ?>
-        </label>
-
-        <label class="label label-communication_method">
-            <?= $form->label($model,'communication_method'); ?>
-            <?= $form->radioButtonList($model,'communication_method',array(
-                'E-mail' => 'E-mail',
-                'Телефон' => 'Телефон',
-                'Мессенджер' => 'Мессенджер',
-                'Соцсеть' => 'Соцсеть')); ?>
-        </label>
-
-
-        <label class="label label-file1">
-            <?= $form->label($model,'file1'); ?>
-            <?= $form->fileField($model,'file1'); ?>
-        </label>
-
-        <label class="label label-file2">
-            <?= $form->label($model,'file2'); ?>
-            <?= $form->fileField($model,'file2'); ?>
-        </label>
-
-        <label class="label label-file3">
-            <?= $form->label($model,'file3'); ?>
-            <?= $form->fileField($model,'file3'); ?>
+        <label class="label label-file btn">
+            <span>Выберите файл</span>
+            <?= $form->fileField($model, 'file3'); ?>
         </label>
 
         <?= $form->errorSummary($model); ?>
 
 
         <div class="bottom">
+            <div class="bottom__text">
+                <div><strong>Согласие на обработку персональных данных</strong></div>
+                <div>Чтобы мы смогли использовать Ваши данные для поиска партнера, пожалуйста, поставьте галочку ниже</div>
+            </div>
             <div class="check">
                 <?= $fields['privacy_policy_bid']->getModel()->widget($factory, $form, $this->params) ?>
             </div>

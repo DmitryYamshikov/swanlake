@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 29 2021 г., 07:34
+-- Время создания: Апр 30 2021 г., 14:03
 -- Версия сервера: 5.6.41
 -- Версия PHP: 7.2.10
 
@@ -198,6 +198,71 @@ INSERT INTO `event` (`id`, `title`, `alias`, `intro`, `text`, `preview`, `enable
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `feedback_bid`
+--
+
+CREATE TABLE `feedback_bid` (
+  `id` int(11) NOT NULL,
+  `created` datetime DEFAULT NULL COMMENT 'Create time',
+  `completed` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Is completed',
+  `name` varchar(255) DEFAULT NULL COMMENT 'Ваши Фамилия, Имя, Отчество',
+  `phone` varchar(128) DEFAULT NULL COMMENT 'Контактный телефон',
+  `messenger` varchar(255) DEFAULT NULL COMMENT 'Мессенджер',
+  `wechat` varchar(255) DEFAULT NULL COMMENT 'WeChat',
+  `email` varchar(255) DEFAULT NULL COMMENT 'Мессенджер',
+  `date` date DEFAULT NULL COMMENT 'Ваша дата рождения',
+  `education` varchar(255) DEFAULT NULL COMMENT 'Ваше образование',
+  `specialty` varchar(255) DEFAULT NULL COMMENT 'Ваша специальность',
+  `city` varchar(255) DEFAULT NULL COMMENT 'Город проживания',
+  `job` varchar(255) DEFAULT NULL COMMENT 'Место работы/учебы',
+  `matrial_status` varchar(255) DEFAULT NULL COMMENT 'Семейное положение',
+  `children` varchar(255) DEFAULT NULL COMMENT 'Дети',
+  `height` varchar(255) DEFAULT NULL COMMENT 'Ваш рост',
+  `weight` varchar(255) DEFAULT NULL COMMENT 'Ваш вес',
+  `heir_color` varchar(255) DEFAULT NULL COMMENT 'Ваш цвет волос',
+  `hobby` varchar(255) DEFAULT NULL COMMENT 'Увлечения, хобби',
+  `positive_feature` varchar(255) DEFAULT NULL COMMENT 'Ваши положительные черты',
+  `negative_feature` varchar(255) DEFAULT NULL COMMENT 'Ваши отрицательные черты',
+  `bad_habits` varchar(255) DEFAULT NULL COMMENT 'Вредные привычки',
+  `foreign_languages` varchar(255) DEFAULT NULL COMMENT 'Занание иностранных языков и уровень знания',
+  `requirements` text COMMENT 'Требования к партнеру',
+  `foreigners` varchar(255) DEFAULT NULL COMMENT 'Знакомство с иностранцами',
+  `social_network` varchar(255) DEFAULT NULL COMMENT 'Соцсеть',
+  `communication_method` varchar(255) DEFAULT NULL COMMENT 'Предпочтительный способ связи',
+  `file1` varchar(255) DEFAULT NULL COMMENT 'Файл 1',
+  `file2` varchar(255) DEFAULT NULL COMMENT 'Файл 2',
+  `file3` varchar(255) DEFAULT NULL COMMENT 'Файл 3',
+  `privacy_policy_bid` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `feedback_callback`
+--
+
+CREATE TABLE `feedback_callback` (
+  `id` int(11) NOT NULL,
+  `created` datetime DEFAULT NULL COMMENT 'Create time',
+  `completed` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Is completed',
+  `name` varchar(255) DEFAULT NULL COMMENT 'Имя',
+  `phone` varchar(128) DEFAULT NULL COMMENT 'Контактный телефон',
+  `privacy_policy` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `file`
 --
 
@@ -278,7 +343,8 @@ CREATE TABLE `info_block` (
 --
 
 INSERT INTO `info_block` (`id`, `title`, `code`, `sort`, `active`, `use_preview`, `use_description`, `description`) VALUES
-(1, 'Баннер на главной', '', 500, 1, 1, 0, '');
+(1, 'Баннер на главной', '', 500, 1, 1, 0, ''),
+(2, 'Причины выбрать нас', '', 500, 1, 1, 1, '');
 
 -- --------------------------------------------------------
 
@@ -304,7 +370,9 @@ CREATE TABLE `info_block_element` (
 --
 
 INSERT INTO `info_block_element` (`id`, `code`, `active`, `title`, `preview`, `description`, `created_at`, `updated_at`, `sort`, `info_block_id`) VALUES
-(1, NULL, 1, 'Баннер на главной', '1_20c4864df85e.jpg', '', '2021-04-28 08:45:03', '2021-04-28 08:46:28', 500, 1);
+(1, NULL, 1, 'Баннер на главной', '1_20c4864df85e.jpg', '', '2021-04-28 08:45:03', '2021-04-28 08:46:28', 500, 1),
+(2, NULL, 1, '1', '2_35dd504a9762.jpg', '<p>Все услуги абсолютно бесплатны для девушек</p>', '2021-04-30 02:28:57', '2021-04-30 02:28:57', 500, 2),
+(3, NULL, 1, '2', '3_18f4a62ec80a.jpg', '<p>Все кадидаты-мужчины &mdash; образованные, состоятельные, преуспевающие</p>', '2021-04-30 02:29:14', '2021-04-30 02:29:14', 500, 2);
 
 -- --------------------------------------------------------
 
@@ -406,12 +474,14 @@ CREATE TABLE `menu` (
 INSERT INTO `menu` (`id`, `title`, `type`, `options`, `seo_a_title`, `ordering`, `default`, `hidden`, `system`, `parent_id`) VALUES
 (1, 'Главная', 'model', '{\"model\":\"page\",\"id\":\"1\"}', NULL, 1, 1, 0, 0, NULL),
 (3, 'Отзывы', 'model', '{\"model\":\"reviews\"}', NULL, 2, 0, 0, 0, NULL),
-(4, 'Статьи', 'model', '{\"model\":\"articles\"}', NULL, 3, 0, 0, 0, NULL),
-(5, 'Услуги', 'model', '{\"model\":\"services\"}', NULL, 4, 0, 0, 0, NULL),
-(6, 'О нас', 'model', '{\"model\":\"page\",\"id\":\"2\"}', NULL, 5, 0, 0, 0, NULL),
-(7, 'Анкета', 'model', '{\"model\":\"page\",\"id\":\"3\"}', NULL, 6, 0, 0, 0, NULL),
-(8, 'Контакты', 'model', '{\"model\":\"page\",\"id\":\"4\"}', NULL, 7, 0, 0, 0, NULL),
-(9, 'Наши услуги', 'model', '{\"model\":\"page\",\"id\":\"5\"}', NULL, 8, 0, 0, 0, NULL);
+(5, 'Услуги', 'model', '{\"model\":\"services\"}', NULL, 3, 0, 0, 0, NULL),
+(6, 'О нас', 'model', '{\"model\":\"page\",\"id\":\"2\"}', NULL, 4, 0, 0, 0, NULL),
+(7, 'Анкета', 'model', '{\"model\":\"page\",\"id\":\"3\"}', NULL, 5, 0, 0, 0, NULL),
+(8, 'Контакты', 'model', '{\"model\":\"page\",\"id\":\"4\"}', NULL, 6, 0, 0, 0, NULL),
+(10, 'Обратный звонок', 'model', '{\"model\":\"feedback\",\"id\":\"callback\"}', NULL, -1, 0, 1, 1, NULL),
+(11, 'Статьи', 'model', '{\"model\":\"articles\"}', NULL, 7, 0, 0, 0, NULL),
+(12, 'Политика конфиденциальности', 'model', '{\"model\":\"page\",\"id\":\"6\"}', NULL, 8, 0, 0, 0, NULL),
+(13, 'Анкеты', 'model', '{\"model\":\"feedback\",\"id\":\"bid\"}', NULL, -1, 0, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -440,10 +510,10 @@ CREATE TABLE `metadata` (
 
 INSERT INTO `metadata` (`id`, `owner_name`, `owner_id`, `meta_h1`, `meta_title`, `meta_key`, `meta_desc`, `a_title`, `priority`, `lastmod`, `changefreq`, `update_time`) VALUES
 (1, 'page', 2, '', '', '', '', NULL, NULL, '2021-04-28', 'always', '2021-04-28 06:59:01'),
-(2, 'page', 3, '', '', '', '', NULL, NULL, '2021-04-28', 'always', '2021-04-28 06:59:19'),
-(3, 'page', 4, '', '', '', '', NULL, NULL, '2021-04-28', 'always', '2021-04-28 07:00:05'),
-(4, 'page', 5, '', '', '', '', NULL, NULL, '2021-04-28', 'always', '2021-04-28 07:00:34'),
-(5, 'page', 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-28', NULL, '2021-04-28 09:51:26');
+(2, 'page', 3, '', '', '', '', NULL, NULL, '2021-04-30', 'always', '2021-04-30 10:57:34'),
+(3, 'page', 4, '', '', '', '', NULL, NULL, '2021-04-30', 'always', '2021-04-30 06:48:11'),
+(5, 'page', 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-28', NULL, '2021-04-28 09:51:26'),
+(6, 'page', 6, '', '', '', '', NULL, NULL, '2021-04-30', 'always', '2021-04-30 04:09:43');
 
 -- --------------------------------------------------------
 
@@ -503,9 +573,9 @@ CREATE TABLE `page` (
 INSERT INTO `page` (`id`, `parent_id`, `blog_id`, `alias`, `title`, `intro`, `text`, `created`, `modified`, `update_time`, `view_template`, `show_page_title`) VALUES
 (1, NULL, NULL, 'index', 'Главная', '<p>Сайт находится в разработке</p>', '<h2>Брачное агентство &laquo;Лебединое озеро&raquo;</h2>\r\n<p>Эта страница создана для демонстрации блоков и элементов, которые используются на сайте, и служит руководством для всех, кто работает над ним. Дизайнеры и технологи отрабатывают здесь стили, чтобы добиться приемлемых результатов в различных сочетаниях блоков и элементов. Контент-менеджеры и редакторы используют страницу в качестве справочника по верстке типовых страниц. Здесь же рассказывается о некоторых общих правилах оформления контента.</p>', '2021-04-28 03:49:23', '2021-04-28 09:51:26', '2021-04-28 09:51:26', '', 0),
 (2, NULL, NULL, 'o-nas', 'О нас', 'О нас', '<p>О нас</p>', '2021-04-28 06:59:01', NULL, '2021-04-28 06:59:01', '', 1),
-(3, NULL, NULL, 'anketa', 'Анкета', 'Анкета', '<p>Анкета</p>', '2021-04-28 06:59:19', NULL, '2021-04-28 06:59:19', '', 1),
-(4, NULL, NULL, 'kontakty', 'Контакты', 'о', '<p>о</p>', '2021-04-28 07:00:05', NULL, '2021-04-28 07:00:05', '', 1),
-(5, NULL, NULL, 'services', 'Наши услуги', 'Наши услуги', '<p>Наши услуги</p>', '2021-04-28 07:00:34', NULL, '2021-04-28 07:00:34', '', 1);
+(3, NULL, NULL, 'anketa', 'Анкета', 'Анкета', '<div></div>', '2021-04-28 06:59:19', '2021-04-30 10:57:34', '2021-04-30 10:57:34', 'ankete', 1),
+(4, NULL, NULL, 'kontakty', 'Контакты', 'о', '<h3>Есть вопросы? Напишите нам!</h3>\r\n<p></p>\r\n<p>{form_feedback}</p>', '2021-04-28 07:00:05', '2021-04-30 06:48:11', '2021-04-30 06:48:11', 'contacts', 1),
+(6, NULL, NULL, 'privacy-policy', 'Политика конфиденциальности', 'Политика конфиденциальности', '<p>Политика конфиденциальности</p>', '2021-04-30 04:08:18', '2021-04-30 04:09:43', '2021-04-30 04:09:43', '', 1);
 
 -- --------------------------------------------------------
 
@@ -638,6 +708,18 @@ CREATE TABLE `seo_seo` (
   `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `seo_seo`
+--
+
+INSERT INTO `seo_seo` (`id`, `hash`, `model_name`, `model_id`, `h1`, `meta_title`, `meta_keywords`, `meta_description`, `link_title`, `update_time`) VALUES
+(1, 1183006162, 'crud\\models\\ar\\Service', 1, '', '', '', '', NULL, '2021-04-30 04:21:27'),
+(2, 3750390888, 'crud\\models\\ar\\Service', 2, '', '', '', '', NULL, '2021-04-30 04:21:54'),
+(3, 2827836670, 'crud\\models\\ar\\Service', 3, '', '', '', '', NULL, '2021-04-30 04:21:58'),
+(4, 921291101, 'crud\\models\\ar\\Service', 4, '', '', '', '', NULL, '2021-04-30 04:22:01'),
+(5, 1106180555, 'crud\\models\\ar\\Service', 5, '', '', '', '', NULL, '2021-04-30 04:22:05'),
+(6, 3639060593, 'crud\\models\\ar\\Service', 6, '', '', '', '', NULL, '2021-04-30 04:22:09');
+
 -- --------------------------------------------------------
 
 --
@@ -657,6 +739,18 @@ CREATE TABLE `services_pages` (
   `sort` int(11) NOT NULL DEFAULT '0',
   `preview_text` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `services_pages`
+--
+
+INSERT INTO `services_pages` (`id`, `create_time`, `update_time`, `published`, `title`, `sef`, `image_alt`, `image`, `text`, `sort`, `preview_text`) VALUES
+(1, '2021-04-30 04:16:50', '2021-04-30 04:21:27', 1, 'Консультация', 'konsultaciya', '', '1_d651cc138e1c.png', '', 60, NULL),
+(2, '2021-04-30 04:17:27', '2021-04-30 04:21:54', 1, 'Анкета', 'anketa', '', '2_f12cb8765c76.png', '', 50, NULL),
+(3, '2021-04-30 04:17:49', '2021-04-30 04:21:58', 1, 'Подбор пары', 'podbor-pary', '', '3_0f49499fdbc9.png', '', 40, NULL),
+(4, '2021-04-30 04:18:09', '2021-04-30 04:22:01', 1, 'Знакомства', 'znakomstva', '', '4_dfe1e235f439.png', '', 30, NULL),
+(5, '2021-04-30 04:18:25', '2021-04-30 04:22:05', 1, 'Общение', 'obshhenie', '', '5_8df35f86caf5.png', '', 20, NULL),
+(6, '2021-04-30 04:18:57', '2021-04-30 04:22:09', 1, 'Встреча', 'vstrecha', '', '6_5e2b3777abc7.png', '', 10, NULL);
 
 -- --------------------------------------------------------
 
@@ -683,7 +777,7 @@ INSERT INTO `settings` (`id`, `category`, `key`, `value`) VALUES
 (5, 'cms_settings', 'phone', 's:0:\"\";'),
 (6, 'cms_settings', 'phone2', 's:0:\"\";'),
 (7, 'cms_settings', 'email', 's:0:\"\";'),
-(8, 'cms_settings', 'emailPublic', 's:0:\"\";'),
+(8, 'cms_settings', 'emailPublic', 's:24:\"info@swanlake-online.com\";'),
 (9, 'cms_settings', 'firm_name', 's:29:\"Лебединое озеро\";'),
 (10, 'cms_settings', 'counter', 's:0:\"\";'),
 (11, 'cms_settings', 'menu_limit', 's:1:\"7\";'),
@@ -696,7 +790,7 @@ INSERT INTO `settings` (`id`, `category`, `key`, `value`) VALUES
 (18, 'cms_settings', 'blog_show_created', 's:1:\"0\";'),
 (19, 'cms_settings', 'copyright_city', 's:26:\"в Новосибирскe\";'),
 (20, 'cms_settings', 'favicon', 'N;'),
-(21, 'cms_settings', 'privacy_policy', 's:0:\"\";'),
+(21, 'cms_settings', 'privacy_policy', 's:1:\"6\";'),
 (22, 'cms_settings', 'privacy_policy_text', 's:230:\"<p>info@swanlake-online.com &mdash; электронная почта для обращений с вопросом о своих персональных данных, в том числе об их удалении.</p>\r\n<p></p>\";'),
 (23, 'cms_settings', 'ymap_apikey', 's:0:\"\";'),
 (24, 'cms_settings', 'sitemap_priority', 's:1:\"1\";'),
@@ -706,7 +800,7 @@ INSERT INTO `settings` (`id`, `category`, `key`, `value`) VALUES
 (28, 'cms_settings', 'slider_many', 'N;'),
 (29, 'cms_settings', 'treemenu_fixed_id', 's:0:\"\";'),
 (30, 'cms_settings', 'treemenu_show_id', 's:1:\"0\";'),
-(31, 'cms_settings', 'treemenu_show_breadcrumbs', 's:1:\"0\";'),
+(31, 'cms_settings', 'treemenu_show_breadcrumbs', 's:1:\"1\";'),
 (32, 'cms_settings', 'treemenu_depth', 's:1:\"1\";'),
 (33, 'cms_settings', 'question_collapsed', 'N;'),
 (34, 'cms_settings', 'shop_title', 'N;'),
@@ -748,7 +842,7 @@ INSERT INTO `settings` (`id`, `category`, `key`, `value`) VALUES
 (70, 'cms_settings', 'recaptcha3_sitekey', 'N;'),
 (71, 'cms_settings', 'recaptcha3_secretkey', 'N;'),
 (72, 'cms_settings', 'recaptcha3_score', 'd:0.9;'),
-(73, 'cms_settings', 'dev_year', 's:0:\"\";'),
+(73, 'cms_settings', 'dev_year', 's:4:\"2021\";'),
 (74, 'cms_settings', 'dev_year_to', 's:0:\"\";'),
 (75, 'cms_settings', 'logo_header', 'N;'),
 (76, 'cms_settings', 'logo_footer', 'N;'),
@@ -757,14 +851,24 @@ INSERT INTO `settings` (`id`, `category`, `key`, `value`) VALUES
 (79, 'cms_settings', 'odnoklassniki', 'N;'),
 (80, 'cms_settings', 'instagram', 'N;'),
 (81, 'cms_settings', 'facebook', 'N;'),
-(82, 'cms_settings', 'show_messengers', 's:1:\"0\";'),
-(83, 'cms_settings', 'whatsapp', 'N;'),
-(84, 'cms_settings', 'telegram', 'N;'),
-(85, 'cms_settings', 'viber', 'N;'),
-(86, 'cms_settings', 'additional_phones', 's:0:\"\";'),
-(87, 'cms_settings', 'additional_emails', 's:0:\"\";'),
-(88, 'cms_settings', 'additional_address', 's:0:\"\";'),
-(89, 'cms_settings', 'sitemap', 's:0:\"\";');
+(82, 'cms_settings', 'show_messengers', 's:1:\"1\";'),
+(83, 'cms_settings', 'whatsapp', 's:15:\"+86 15967953177\";'),
+(84, 'cms_settings', 'telegram', 's:15:\"+86 17321192908\";'),
+(85, 'cms_settings', 'viber', 's:0:\"\";'),
+(86, 'cms_settings', 'additional_phones', 's:39:\"+8795642124412\r\nдля ыпджлыэп\";'),
+(87, 'cms_settings', 'additional_emails', 's:1:\"1\";'),
+(88, 'cms_settings', 'additional_address', 's:1:\"1\";'),
+(89, 'cms_settings', 'sitemap', 's:0:\"\";'),
+(90, 'ServicesSettings', 'meta_title', 's:0:\"\";'),
+(91, 'ServicesSettings', 'meta_desc', 's:0:\"\";'),
+(92, 'ServicesSettings', 'meta_key', 's:0:\"\";'),
+(93, 'ServicesSettings', 'meta_h1', 's:0:\"\";'),
+(94, 'ServicesSettings', 'main_text', 's:0:\"\";'),
+(95, 'ServicesSettings', 'main_text2', 's:0:\"\";'),
+(96, 'ServicesSettings', 'isNewRecord', 'b:0;'),
+(97, 'ServicesSettings', 'template_type', 's:1:\"1\";'),
+(98, 'ServicesSettings', 'id', 'i:1;'),
+(99, 'ServicesSettings', 'default', 'a:0:{}');
 
 -- --------------------------------------------------------
 
@@ -917,6 +1021,18 @@ ALTER TABLE `event`
   ADD PRIMARY KEY (`id`),
   ADD KEY `publish` (`publish`),
   ADD KEY `alias` (`alias`);
+
+--
+-- Индексы таблицы `feedback_bid`
+--
+ALTER TABLE `feedback_bid`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `feedback_callback`
+--
+ALTER TABLE `feedback_callback`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `file`
@@ -1168,6 +1284,18 @@ ALTER TABLE `event`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT для таблицы `feedback_bid`
+--
+ALTER TABLE `feedback_bid`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `feedback_callback`
+--
+ALTER TABLE `feedback_callback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблицы `file`
 --
 ALTER TABLE `file`
@@ -1195,13 +1323,13 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT для таблицы `info_block`
 --
 ALTER TABLE `info_block`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `info_block_element`
 --
 ALTER TABLE `info_block_element`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `info_block_element_prop`
@@ -1231,13 +1359,13 @@ ALTER TABLE `link`
 -- AUTO_INCREMENT для таблицы `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `metadata`
 --
 ALTER TABLE `metadata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `order_customer_fields`
@@ -1249,7 +1377,7 @@ ALTER TABLE `order_customer_fields`
 -- AUTO_INCREMENT для таблицы `page`
 --
 ALTER TABLE `page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
@@ -1291,19 +1419,19 @@ ALTER TABLE `sale`
 -- AUTO_INCREMENT для таблицы `seo_seo`
 --
 ALTER TABLE `seo_seo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `services_pages`
 --
 ALTER TABLE `services_pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT для таблицы `sort_category`

@@ -189,6 +189,19 @@ $(document).ready(function () {
 
 	});
 
+	//imput file 
+	try {
+		const inputFile = document.querySelectorAll('.label-file.btn input[type="file"]');
+		console.log(inputFile);
+		inputFile.forEach(item=>{
+			item.addEventListener('change', function(){
+				this.parentElement.querySelector('span').textContent = this.files[0].name;
+			});
+		});
+	} catch (error) {
+		console.log(error);
+	}
+
 	$('body').on('click', '.yiiPager li', function () {
 		$('html, body').animate({ scrollTop: $('.content').offset().top }, 500); // анимируем скроолинг к элементу scroll_el
 	});
